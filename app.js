@@ -13,7 +13,13 @@ buttonClear.addEventListener('touchstart' , deletePokemons); //* For mobile devi
 
 function insertPokemon() {
   window.fetch(`${baseUrl}${pokemon.value.toLocaleLowerCase()}`)
-    .then(response => response.json())
+    .then(response =>{
+      if (response.status === 404) {
+        alert("This pokemon is not available. Try with another one!");
+      } else {
+        return response.json();
+      }
+    })
     .then(responseJSON => {
       const allItems = [];
 

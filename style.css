@@ -41,7 +41,7 @@ body{
 }
 
 .inputFields input{
-  font-size: 1.5em;
+  font-size: 1.2em;
   border-radius: 10px;
   margin-right: 10px;
   font-family: 'Rajdhani', sans-serif;
@@ -87,6 +87,10 @@ body{
     flex-direction: column;
   }
 
+  .main .inputFields{
+    width: 85%;
+  }
+
   .inputFields{
     font-size: 1.5em;
     margin: auto;
@@ -123,6 +127,10 @@ body{
 }
 
 @media (max-width: 480px){
+  .main .inputFields{
+    width: 90%;
+  }
+
   .inputFields{
     font-size: 1.2em;
   }
@@ -140,6 +148,14 @@ body{
 @media (max-width:320px){
   .main .pokemonData{
     display: flex;
+  }
+
+  .main .inputFields{
+    width: 95%;
+  }
+
+  .inputFields input{
+    width: 100%;
   }
 
   .inputFields .buttons{
