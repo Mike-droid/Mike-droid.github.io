@@ -23,7 +23,7 @@ function insertPokemon() {
         result.push([index , responseJSON[index]]);
       }
 
-      //console.log(result);
+      console.log(result);
 
       //*Crear imagen
       const pokemonImage = document.createElement('img');
