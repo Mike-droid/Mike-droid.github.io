@@ -35,9 +35,9 @@ function insertPokemon() {
       const pokemonImage = document.createElement('img');
       pokemonImage.src = result[14][1].front_default; //*Image of pokemon
 
-      //*Nombre de pokemon
+      //*Nombre de pokemon e ID
       const pokemonName = document.createElement('h2');
-      pokemonName.innerText = `Name: ${result[10][1]}`; //* Name of pokemon
+      pokemonName.innerText = `Name: ${result[10][1]} - ID: ${result[6][1]}`; //* Name of pokemon with ID
 
       //*Tipo de pokemon
       const pokemonType = document.createElement('h2');
