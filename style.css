@@ -28,7 +28,7 @@ body{
 }
 
 .main .inputFields,
-.main .weatherData{
+.main .pokemonData{
   width: 50%;
 }
 
@@ -44,6 +44,7 @@ body{
   font-size: 1.5em;
   border-radius: 10px;
   margin-right: 10px;
+  font-family: 'Rajdhani', sans-serif;
 }
 
 .inputFields button{
@@ -63,7 +64,6 @@ body{
 .pokemonData{
   display: flex;
   flex-direction: column;
-  width: 100%;
 }
 
 .pokemonData .container{
@@ -106,9 +106,10 @@ body{
     width: 50px;
   }
 
-  .pokemonData{
+  .main .pokemonData{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    width: 100%;
   }
 
   .pokemonData .container{
@@ -134,9 +135,17 @@ body{
     display: flex;
     flex-direction: column;
   }
+
+  .pokemonData .container{
+    width: 65%;
+  }
 }
 
 @media (max-width:320px){
+  .main .pokemonData{
+    display: flex;
+  }
+
   .inputFields .buttons{
     display: flex;
     flex-direction: column;
