@@ -6,10 +6,14 @@ const buttonClear = document.getElementById('clearPokemon');
 const appNode = document.getElementById('app');
 
 buttonPokemon.addEventListener('click' , insertPokemon);
-buttonPokemon.addEventListener('touchstart' , insertPokemon); //*For mobile devices
+buttonPokemon.addEventListener('touchstart' , ()=>{
+  alert('Has tocado el botón de lupa');
+}); //*For mobile devices
 
 buttonClear.addEventListener('click' , deletePokemons);
-buttonClear.addEventListener('touchstart' , deletePokemons); //* For mobile devices
+buttonClear.addEventListener('touchstart' , ()=>{
+  alert('Has tocado el botón de eliminar');
+}); //* For mobile devices
 
 function insertPokemon() {
   window.fetch(`${baseUrl}${pokemon.value}`)
