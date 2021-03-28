@@ -5,7 +5,13 @@ const buttonDelete = document.getElementById('deleteSearch');
 const buttonClear = document.getElementById('clearPokemon');
 const appNode = document.getElementById('app');
 
-buttonPokemon.addEventListener('click' , () => {
+buttonPokemon.addEventListener('click' , insertPokemon);
+buttonPokemon.addEventListener('touchstart' , insertPokemon); //*For mobile devices
+
+buttonClear.addEventListener('click' , deletePokemons);
+buttonClear.addEventListener('touchstart' , deletePokemons); //* For mobile devices
+
+function insertPokemon() {
   window.fetch(`${baseUrl}${pokemon.value}`)
     .then(response => response.json())
     .then(responseJSON => {
@@ -42,13 +48,13 @@ buttonPokemon.addEventListener('click' , () => {
 
       hasChild = true;
     });
-});
+}
 
-buttonClear.addEventListener('click' , ()=>{
+function deletePokemons() {
   allChildren = appNode.childNodes;
   allChildren = Array.from(allChildren);
 
   allChildren.forEach(pokemon => {
     pokemon.remove(pokemon);
   });
-});
+}
