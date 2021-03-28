@@ -1,0 +1,60 @@
+body{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.title{
+  text-align: center;
+}
+
+.main{
+  height: 90vh;
+  display: flex;
+}
+
+.main .inputFields,
+.main .weatherData{
+  width: 50%;
+}
+
+.inputFields {
+  display: flex;
+  flex-direction: column;
+  font-size: 3em;
+  text-align: center;
+  justify-content: center;
+}
+
+.inputFields input{
+  font-size: 2em;
+}
+
+.inputFields button{
+  height: auto;
+  font-size: 1em;
+  width: fit-content;
+  margin: 10px auto;
+}
+
+.pokemonData{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.pokemonData .container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid black;
+}
+
+.pokemonData .container img{
+  width: 70%;
+  margin: 0 auto;
+}
+
+.pokemonData .container h2{
+  text-align: center;
+  text-transform: uppercase;
+}
