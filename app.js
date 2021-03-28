@@ -12,7 +12,7 @@ buttonClear.addEventListener('click' , deletePokemons);
 buttonClear.addEventListener('touchstart' , deletePokemons); //* For mobile devices
 
 function insertPokemon() {
-  window.fetch(`${baseUrl}${pokemon.value}`)
+  window.fetch(`${baseUrl}${pokemon.value.toLocaleLowerCase()}`)
     .then(response => response.json())
     .then(responseJSON => {
       const allItems = [];
