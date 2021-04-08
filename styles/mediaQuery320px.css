@@ -1,0 +1,16 @@
+.main .pokemonData{
+  display: flex;
+}
+
+.main .inputFields{
+  width: 95%;
+}
+
+.inputFields input{
+  width: 100%;
+}
+
+.inputFields .buttons{
+  display: flex;
+  flex-direction: column;
+}
