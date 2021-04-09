@@ -1,7 +1,6 @@
 const baseUrl = `https://pokeapi.co/api/v2/pokemon/`;
 const pokemon = document.getElementById('pokemonName');
 const buttonPokemon = document.getElementById('searchPokemon');
-const buttonDelete = document.getElementById('deleteSearch');
 const buttonClear = document.getElementById('clearPokemon');
 const appNode = document.getElementById('app');
 
@@ -25,11 +24,11 @@ function insertPokemon() {
 
       const result = []; //*Guardaremos la respuesta en el array
 
-      for (let index in responseJSON) { //*Convertimos el objeto JSON a array
-        result.push([index , responseJSON[index]]);
+      for (let pokemonInfo in responseJSON) { //*Convertimos el objeto JSON a array
+        result.push([pokemonInfo , responseJSON[pokemonInfo]]);
       }
 
-      console.log(result);
+      //!console.table(result); only for development
 
       //*Crear imagen
       const pokemonImage = document.createElement('img');
@@ -55,8 +54,8 @@ function insertPokemon() {
 }
 
 function deletePokemons() {
-  allChildren = appNode.childNodes;
-  allChildren = Array.from(allChildren);
+  let allPokemon = appNode.childNodes;
+  allPokemon = Array.from(allPokemon);
 
   allChildren.forEach(pokemon => {
     pokemon.remove(pokemon);
