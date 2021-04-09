@@ -57,7 +57,7 @@ function deletePokemons() {
   let allPokemon = appNode.childNodes;
   allPokemon = Array.from(allPokemon);
 
-  allChildren.forEach(pokemon => {
+  allPokemon.forEach(pokemon => {
     pokemon.remove(pokemon);
   });
 }
