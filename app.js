@@ -10,47 +10,45 @@ buttonPokemon.addEventListener('touchstart' , insertPokemon); //*For mobile devi
 buttonClear.addEventListener('click' , deletePokemons);
 buttonClear.addEventListener('touchstart' , deletePokemons); //* For mobile devices
 
-function insertPokemon() {
-  window.fetch(`${baseUrl}${pokemon.value.toLocaleLowerCase()}`)
-    .then(response =>{
-      if (response.status === 404) {
-        alert("This pokemon is not available. Try with another one!");
-      } else {
-        return response.json();
-      }
-    })
-    .then(responseJSON => {
-      const allItems = [];
+async function insertPokemon() {
+  try {
+    const res = await fetch(`${baseUrl}${pokemon.value.toLocaleLowerCase()}`)
+    const pokemonDataJSON = await res.json()
 
-      const result = []; //*Guardaremos la respuesta en el array
+    const allItems = [];
+    const result = []; //*Guardaremos la respuesta en el array
 
-      for (let pokemonInfo in responseJSON) { //*Convertimos el objeto JSON a array
-        result.push([pokemonInfo , responseJSON[pokemonInfo]]);
-      }
+    for (let pokemonInfo in pokemonDataJSON) { //*Convertimos el objeto JSON a array
+      result.push([pokemonInfo , pokemonDataJSON[pokemonInfo]]);
+    }
 
-      //!console.table(result); only for development
+    //console.table(result); //! only for development
 
-      //*Crear imagen
-      const pokemonImage = document.createElement('img');
-      pokemonImage.src = result[14][1].front_default; //*Image of pokemon
+    //* Información de en frente
 
-      //*Nombre de pokemon e ID
-      const pokemonName = document.createElement('h2');
-      pokemonName.innerText = `Name: ${result[10][1]} - ID: ${result[6][1]}`; //* Name of pokemon with ID
+    //*Crear imagen
+    const pokemonImage = document.createElement('img');
+    pokemonImage.src = result[14][1].front_default; //*Image of pokemon
 
-      //*Tipo de pokemon
-      const pokemonType = document.createElement('h2');
-      pokemonType.innerText = `Type: ${result[16][1][0].type.name}`; //*Type of pokemon
+    //*Nombre de pokemon e ID
+    const pokemonName = document.createElement('h2');
+    pokemonName.innerText = `Name: ${result[10][1]} - ID: ${result[6][1]}`; //* Name of pokemon with ID
 
-      //*Crear contenedor
-      const container = document.createElement('div');
-      container.append(pokemonImage , pokemonName ,pokemonType);
-      container.classList.add('container');
+    //*Tipo de pokemon
+    const pokemonType = document.createElement('h2');
+    pokemonType.innerText = `Type: ${result[16][1][0].type.name}`; //*Type of pokemon
 
-      allItems.push(container);
+    //*Crear contenedor
+    const container = document.createElement('div');
+    container.append(pokemonImage , pokemonName ,pokemonType);
+    container.classList.add('container');
 
-      appNode.append(...allItems);
-    });
+    allItems.push(container);
+
+    appNode.append(...allItems);
+  } catch (error) {
+    alert('That pokemon is not available. Try againt with another one!')
+  }
 }
 
 function deletePokemons() {
