@@ -69,16 +69,15 @@ body {
   justify-content: center;
   border: 1px solid black;
   background-color: var(--pokedex-white);
-  margin-bottom: 20px;
-  /*transform-style: preserve-3d;
-  backface-visibility: hidden;*/
+  margin-block-end: 20px;
+  border-radius: 5px;
+  padding: 10px;
 }
 
-/*.pokemonData .container:hover {
+.pokemonData .container:hover {
   cursor: pointer;
-  transform: rotateY(180deg);
-  transition: 1s;
-}*/
+  background-color: rgb(121, 255, 255);
+}
 
 .pokemonData .container img {
   width: 70%;
@@ -88,4 +87,19 @@ body {
 .pokemonData .container h2 {
   text-align: center;
   text-transform: uppercase;
+}
+
+.pokemonData .container .pokemonStatsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+}
+
+.pokemonData .container .pokemonStatsContainer p {
+  box-sizing: border-box;
+  border: 1px solid black;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 1.2rem;
 }

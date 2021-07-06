@@ -22,7 +22,7 @@ async function insertPokemon() {
       result.push([pokemonInfo , pokemonDataJSON[pokemonInfo]]);
     }
 
-    //console.table(result); //! only for development
+    console.table(result); //! only for development
 
     //* Información de en frente
 
@@ -38,16 +38,52 @@ async function insertPokemon() {
     const pokemonType = document.createElement('h2');
     pokemonType.innerText = `Type: ${result[16][1][0].type.name}`; //*Type of pokemon
 
+    //* Pokemon HP
+    const hp = document.createElement('p');
+    hp.innerText = `HP: ${result[15][1][0].base_stat}`; //*HP of pokemon
+    hp.classList.add('pokemonStats');
+
+    //* Attack power
+    const attack = document.createElement('p');
+    attack.innerText = `Attack: ${result[15][1][1].base_stat}`; //* Attack power of pokemon
+    attack.classList.add('pokemonStats');
+
+    //* Defense
+    const defense = document.createElement('p');
+    defense.innerText = `Defense: ${result[15][1][2].base_stat}`; //* Pokemon defense
+    defense.classList.add('pokemonStats');
+
+    //* Special Attack
+    const specialAttack = document.createElement('p');
+    specialAttack.innerText = `Special Attack: ${result[15][1][3].base_stat}`; //* Pokemon special attack
+    specialAttack.classList.add('pokemonStats');
+
+    //* Special Defense
+    const specialDefense = document.createElement('p');
+    specialDefense.innerText = `Special Defense: ${result[15][1][4].base_stat}`; //* Pokemon special defense
+    specialDefense.classList.add('pokemonStats');
+
+    //* Speed
+    const speed = document.createElement('p');
+    speed.innerText = `Speed: ${result[15][1][5].base_stat}`; //* Pokemon special attack
+    speed.classList.add('pokemonStats');
+
+    //* Contenerdor de stats
+    const stats = document.createElement('div');
+    stats.append(hp, attack, defense, specialAttack, specialDefense, speed);
+    stats.classList.add('pokemonStatsContainer');
+
     //*Crear contenedor
     const container = document.createElement('div');
-    container.append(pokemonImage , pokemonName ,pokemonType);
+    container.append(pokemonImage , pokemonName ,pokemonType, stats);
     container.classList.add('container');
 
     allItems.push(container);
 
     appNode.append(...allItems);
+
   } catch (error) {
-    alert('That pokemon is not available. Try againt with another one!')
+    alert("That pokemon isn't available. Try againt with another one!");
   }
 }
 
